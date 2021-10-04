@@ -6,11 +6,14 @@
     <style>
         html {
             margin: 0;
+            overflow: hidden;
         }
 
         body {
             display: block;
-            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            padding-top: 12px;
             margin: 0;
             font-family: sans-serif;
             font-size: 18px;
@@ -19,8 +22,18 @@
             justify-content: center;
         }
 
+        body #viewport {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 560px;
+            height: 900px;
+            overflow: hidden;
+        }
+
         .aircraft-selection-list {
             display: flex;
+            justify-content: center;
             margin-bottom: 12px;
         }
         .aircraft-selector {
@@ -36,6 +49,8 @@
 
         .formation-selection-list {
             display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
         }
         .formation-selector {
             display: flex;
@@ -55,13 +70,6 @@
         }
         .formation-selector[toggled] {
             border: 1px solid #acacac;
-        }
-
-        body .viewport {
-            position: relative;
-            width: 100%;
-            height: 900px;
-            overflow: hidden;
         }
 
         .aircraft {
@@ -116,27 +124,36 @@
         <div class="formation-selector" onclick="setFormation(TWO_SHIP_ECHELON_LEFT)">
             Two-ship echelon left
         </div>
-        <div class="formation-selector" onclick="setFormation(TWO_SHIP_ECHELON_RIGHT)">
-            Two-ship echelon right
-        </div>
         <div class="formation-selector" onclick="setFormation(FOUR_SHIP_ECHELON_LEFT)">
             Four-ship echelon left
-        </div>
-        <div class="formation-selector" onclick="setFormation(FOUR_SHIP_ECHELON_RIGHT)">
-            Four-ship echelon right
         </div>
         <div class="formation-selector" onclick="setFormation(FINGER_FOUR_LEFT)">
             Finger four left
         </div>
-        <div class="formation-selector" onclick="setFormation(FINGER_FOUR_RIGHT)">
-            Finger four right
-        </div>
         <div class="formation-selector" onclick="setFormation(WEDGE)">
             Wedge
+        </div>
+        <div class="formation-selector" onclick="setFormation(LINE_ABREAST)">
+            Line abreast
+        </div>
+    </div>
+    <div class="formation-selection-list">
+        <div class="formation-selector" onclick="setFormation(TWO_SHIP_ECHELON_RIGHT)">
+            Two-ship echelon right
+        </div>
+        <div class="formation-selector" onclick="setFormation(FOUR_SHIP_ECHELON_RIGHT)">
+            Four-ship echelon right
+        </div>
+        <div class="formation-selector" onclick="setFormation(FINGER_FOUR_RIGHT)">
+            Finger four right
         </div>
         <div class="formation-selector" onclick="setFormation(TRAIL)">
             Trail
         </div>
+        <div class="formation-selector" onclick="setFormation(COMBAT_SPREAD)">
+            Combat spread
+        </div>
+
     </div>
 
     <div id="viewport">

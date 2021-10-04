@@ -74,3 +74,20 @@ const TRAIL = {
         [0, 6],
     ]
 }
+
+const LINE_ABREAST = {
+    name: "Line abreast",
+    positions: [
+        [0, 0],
+        [1.5, 0],
+        [-1.5, 0],
+    ]
+}
+
+const COMBAT_SPREAD = {
+    name: "Combat spread",
+    positions: [
+        [-2, 0],
+        [2, 0],
+    ]
+}

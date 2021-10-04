@@ -3,7 +3,7 @@ let previousFormationPosition = [];
 
 function setAircraftPosition(aircraftIndex, x, y) {
     const aircraft = aircraftElements[aircraftIndex];
-    aircraft.style.transform = `translate(${x}px, ${y}px) rotate(45deg)`;
+    aircraft.style.transform = `translate(${x-24}px, ${y-24}px) rotate(45deg)`;
 }
 
 function setAircraftImage(aircraftIndex, url) {
@@ -29,25 +29,22 @@ function setFormation(formation) {
         } else {
             aircraft.classList.add("faded");
             if(previousFormationPosition[i]) {
-                pos = [previousFormationPosition[i][0], previousFormationPosition[i][1] * 3 + 1];
+                pos = [previousFormationPosition[i][0] * 1.2, previousFormationPosition[i][1] * 1.2 + 3];
             } else {
                 // Eeh?
-                pos = [0, 0];
+                pos = [0, 5];
             }
         }
-        setAircraftPosition(i, 220 + pos[0] * 60, 50 + pos[1] * 60);
+        setAircraftPosition(i, 560/2 - 12 + pos[0] * 50, 82 + pos[1] * 50);
     }
 }
 
 function initFormations(viewport, aircraftTemplate) {
-
     for(let i=0; i<8; i++) {
         let aircraftElement = aircraftTemplate.content.cloneNode(true);
         aircraftElement = viewport.appendChild(aircraftElement.querySelector("div"));
         aircraftElement.querySelector(".number").innerHTML = 1 + i;
         aircraftElements.push(aircraftElement);
-        // setAircraftPosition(i, 100 + i * 80, 100 + i * 80);
     }
-
     setFormation(FINGER_FOUR_RIGHT);
 }
