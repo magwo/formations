@@ -46,5 +46,4 @@ function initFormations(viewport, aircraftTemplate) {
         aircraftElement.querySelector(".number").innerHTML = 1 + i;
         aircraftElements.push(aircraftElement);
     }
-    setFormation(FINGER_FOUR_RIGHT);
 }

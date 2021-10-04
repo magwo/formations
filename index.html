@@ -43,7 +43,7 @@
             opacity: 0.5;
             transition: opacity 400ms ease-in-out;
         }
-        .aircraft-selector:hover, .aircraft-selector:active {
+        .aircraft-selector:hover, .aircraft-selector:active, .aircraft-selector[toggled] {
             opacity: 1.0;
         }
 
@@ -69,7 +69,7 @@
             cursor: pointer;
         }
         .formation-selector[toggled] {
-            border: 1px solid #acacac;
+            border: 1px solid #999;
         }
 
         .aircraft {
@@ -109,48 +109,48 @@
 <body>
 
     <div class="aircraft-selection-list">
-        <div class="aircraft-selector" style="background-image: url(images/viper@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/flanker@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/tomcat@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/hornet@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/viggen@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/gripen@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/fishbed@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/harrier@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/warthog@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/apache@2x.png)" onclick="setAllAircraftImage(this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/viper@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/flanker@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/tomcat@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/hornet@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/viggen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/gripen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/fishbed@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/harrier@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/warthog@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" style="background-image: url(images/apache@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
     </div>
     <div class="formation-selection-list">
-        <div class="formation-selector" onclick="setFormation(TWO_SHIP_ECHELON_LEFT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_LEFT)">
             Two-ship echelon left
         </div>
-        <div class="formation-selector" onclick="setFormation(FOUR_SHIP_ECHELON_LEFT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_LEFT)">
             Four-ship echelon left
         </div>
-        <div class="formation-selector" onclick="setFormation(FINGER_FOUR_LEFT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, FINGER_FOUR_LEFT)">
             Finger four left
         </div>
-        <div class="formation-selector" onclick="setFormation(WEDGE)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, WEDGE)">
             Wedge
         </div>
-        <div class="formation-selector" onclick="setFormation(LINE_ABREAST)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, LINE_ABREAST)">
             Line abreast
         </div>
     </div>
     <div class="formation-selection-list">
-        <div class="formation-selector" onclick="setFormation(TWO_SHIP_ECHELON_RIGHT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_RIGHT)">
             Two-ship echelon right
         </div>
-        <div class="formation-selector" onclick="setFormation(FOUR_SHIP_ECHELON_RIGHT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_RIGHT)">
             Four-ship echelon right
         </div>
-        <div class="formation-selector" onclick="setFormation(FINGER_FOUR_RIGHT)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, FINGER_FOUR_RIGHT)">
             Finger four right
         </div>
-        <div class="formation-selector" onclick="setFormation(TRAIL)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, TRAIL)">
             Trail
         </div>
-        <div class="formation-selector" onclick="setFormation(COMBAT_SPREAD)">
+        <div class="formation-selector" onclick="toggleAndSetFormation(this, COMBAT_SPREAD)">
             Combat spread
         </div>
 
@@ -170,7 +170,27 @@
             const viewport = document.getElementById("viewport")
             const aircraftTemplate = document.getElementById("aircraft-template");
             initFormations(viewport, aircraftTemplate);
+            document.querySelector(".aircraft-selector").click();
+            document.querySelector(".formation-selector").click();
         }
         init();
+
+        function toggleAndSetAircraft(element, aircraftUrl) {
+            setToggled(element, ".aircraft-selector");
+            setAllAircraftImage(aircraftUrl);
+        }
+
+        function toggleAndSetFormation(element, formation) {
+            setToggled(element, ".formation-selector");
+            setFormation(formation);
+        }
+
+        function setToggled(element, selector) {
+            const all = document.querySelectorAll(selector)
+            Array.from(all).forEach((other) => {
+                other.removeAttribute("toggled");
+            });
+            element.setAttribute("toggled", true);
+        }
     </script>
 </body>
