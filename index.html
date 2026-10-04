@@ -122,49 +122,49 @@
 <body>
 
     <div class="aircraft-selection-list">
-        <div class="aircraft-selector" style="background-image: url(images/viper@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/flanker@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/tomcat@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/hornet@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/viggen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/gripen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/fishbed@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/harrier@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/warthog@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
-        <div class="aircraft-selector" style="background-image: url(images/apache@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="VIPER" style="background-image: url(images/viper@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="FLANKER" style="background-image: url(images/flanker@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="TOMCAT" style="background-image: url(images/tomcat@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="HORNET" style="background-image: url(images/hornet@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="VIGGEN" style="background-image: url(images/viggen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="GRIPEN" style="background-image: url(images/gripen@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="FISHBED" style="background-image: url(images/fishbed@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="HARRIER" style="background-image: url(images/harrier@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="WARTHOG" style="background-image: url(images/warthog@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
+        <div class="aircraft-selector" data-aircraft="APACHE" style="background-image: url(images/apache@2x.png)" onclick="toggleAndSetAircraft(this, this.style['background-image'])"></div>
     </div>
     <div class="formation-selection-list">
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_LEFT)">
+        <div class="formation-selector" data-formation="TWO_SHIP_ECHELON_LEFT" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_LEFT)">
             Two-ship echelon left
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_LEFT)">
+        <div class="formation-selector" data-formation="FOUR_SHIP_ECHELON_LEFT" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_LEFT)">
             Four-ship echelon left
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, FINGER_FOUR_LEFT)">
+        <div class="formation-selector" data-formation="FINGER_FOUR_LEFT" onclick="toggleAndSetFormation(this, FINGER_FOUR_LEFT)">
             Finger four left
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, TRAIL)">
+        <div class="formation-selector" data-formation="TRAIL" onclick="toggleAndSetFormation(this, TRAIL)">
             Trail
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, COMBAT_SPREAD)">
+        <div class="formation-selector" data-formation="COMBAT_SPREAD" onclick="toggleAndSetFormation(this, COMBAT_SPREAD)">
             Combat spread
         </div>
     </div>
     <div class="formation-selection-list">
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_RIGHT)">
+        <div class="formation-selector" data-formation="TWO_SHIP_ECHELON_RIGHT" onclick="toggleAndSetFormation(this, TWO_SHIP_ECHELON_RIGHT)">
             Two-ship echelon right
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_RIGHT)">
+        <div class="formation-selector" data-formation="FOUR_SHIP_ECHELON_RIGHT" onclick="toggleAndSetFormation(this, FOUR_SHIP_ECHELON_RIGHT)">
             Four-ship echelon right
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, FINGER_FOUR_RIGHT)">
+        <div class="formation-selector" data-formation="FINGER_FOUR_RIGHT" onclick="toggleAndSetFormation(this, FINGER_FOUR_RIGHT)">
             Finger four right
         </div>
         
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, FIGHTING_WING)">
+        <div class="formation-selector" data-formation="FIGHTING_WING" onclick="toggleAndSetFormation(this, FIGHTING_WING)">
             Fighting wing
         </div>
-        <div class="formation-selector" onclick="toggleAndSetFormation(this, TRAILING_FIGHTING_WINGS)">
+        <div class="formation-selector" data-formation="TRAILING_FIGHTING_WINGS" onclick="toggleAndSetFormation(this, TRAILING_FIGHTING_WINGS)">
             Trailing fighting wings
         </div>
 
@@ -184,19 +184,41 @@
             const viewport = document.getElementById("viewport")
             const aircraftTemplate = document.getElementById("aircraft-template");
             initFormations(viewport, aircraftTemplate);
-            document.querySelector(".aircraft-selector").click();
-            document.querySelector(".formation-selector").click();
+            selectAircraftFromQuery();
+            selectFormationFromQuery();
         }
         init();
+
+        function selectAircraftFromQuery() {
+            const aircraftId = new URLSearchParams(window.location.search).get("a");
+            const matchingSelector = aircraftId
+                && document.querySelector(`.aircraft-selector[data-aircraft="${CSS.escape(aircraftId)}"]`);
+            (matchingSelector || document.querySelector(".aircraft-selector")).click();
+        }
+
+        function selectFormationFromQuery() {
+            const formationId = new URLSearchParams(window.location.search).get("f");
+            const matchingSelector = FORMATIONS_BY_ID[formationId]
+                && document.querySelector(`.formation-selector[data-formation="${formationId}"]`);
+            (matchingSelector || document.querySelector(".formation-selector")).click();
+        }
+
+        function setQueryParam(key, value) {
+            const url = new URL(window.location.href);
+            url.searchParams.set(key, value);
+            history.replaceState(null, "", url);
+        }
 
         function toggleAndSetAircraft(element, aircraftUrl) {
             setToggled(element, ".aircraft-selector");
             setAllAircraftImage(aircraftUrl);
+            setQueryParam("a", element.dataset.aircraft);
         }
 
         function toggleAndSetFormation(element, formation) {
             setToggled(element, ".formation-selector");
             setFormation(formation);
+            setQueryParam("f", formation.id);
         }
 
         function setToggled(element, selector) {
